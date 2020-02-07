@@ -1,0 +1,42 @@
+/* Samrtphone */
+@media(max-width:500px){
+    #navbar{
+        flex-direction: column;
+        align-items: center;
+    }
+    #navbar .logo{
+        margin-bottom: 0.6rem;
+        text-align: center;
+        margin-left: 0.6rem;
+    }
+    #navbar ul{
+        padding: 0.1rem;
+        margin: 0 0.5;
+    }
+    #navbar ul li a{
+        padding: 0.1rem;
+        margin: 0 0.5;
+    }
+        /* } works fine on
+     chrome tools but not on vscode.
+    Adjust about us     */
+   
+    #showcase .showcase-content{
+        top: 200px;
+        bottom: 0;
+    }
+    
+    /* #contact{
+        align-items: center;
+    } */
+    /* #projects{
+        overflow: scroll;
+    }
+    #about{
+        overflow: hidden;
+    }*/
+    /* #contact{
+        display: block;
+        justify-content: center;
+    } */
+} 

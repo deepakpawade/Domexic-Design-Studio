@@ -1,0 +1,51 @@
+<html>
+<head>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</head>
+<body>
+   <header id="main-header">
+        <h2><span class="text-primary">Our</span> Services</h2>
+    </header>
+<main class="slider">
+    <section class="card" >
+        <img src="./assets/photos/baramati bunglow/LIVING ROOM - V1.jpg" alt="">
+        <div>
+            <h3>Design One</h3>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. In pariatur sapiente modi quis magni porro iusto accusantium autem labore eos?</p>
+            <a href="" class="btn-sli">See More</a>
+        </div>
+    </section>
+    <section class="card" data-aos="fade-left">
+        <img src="./assets/photos/baramati bunglow/LIVING ROOM - V1.jpg" alt="">
+        <div>
+            <h3>Design One</h3>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. In pariatur sapiente modi quis magni porro iusto accusantium autem labore eos?</p>
+            <a href="" class="btn-sli">See More</a>
+        </div>
+    </section>
+    <section class="card"data-aos="fade-right">
+        <img src="./assets/photos/baramati bunglow/LIVING ROOM - V1.jpg" alt="">
+        <div>
+            <h3>Design One</h3>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. In pariatur sapiente modi quis magni porro iusto accusantium autem labore eos?</p>
+            <a href="" class="btn-sli">See More</a>
+        </div>
+    </section>
+    <section class="card" data-aos="fade-left">
+        <img src="./assets/photos/baramati bunglow/LIVING ROOM - V1.jpg" alt="">
+        <div>
+            <h3>Design One</h3>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. In pariatur sapiente modi quis magni porro iusto accusantium autem labore eos?</p>
+            <a href="" class="btn-sli">See More</a>
+        </div>
+    </section>
+</main>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+  AOS.init({
+      offset:300,
+      duration:1000
+  });
+</script>
+</body>
+</html>

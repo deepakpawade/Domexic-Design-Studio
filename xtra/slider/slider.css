@@ -1,0 +1,82 @@
+body, .slider, .wrap , .slide-content{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 100%;
+    height: 100vh;
+    overflow-x: hidden;
+}
+
+.wrap{
+    position: relative;
+}
+
+.slide{
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    box-shadow: inset 100px 100px 350px #000000, inset -120px -100px 250px #000000;
+    
+}
+
+.title{
+    position: absolute;
+    text-align: center;
+    left: 50%;
+    transform:translateX(-50%);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    color: aliceblue;
+    /* padding-bottom: 200px ; */
+}
+.slide1{
+    background-image: url(gray-standard-color-book-near-green-eraser-159045.jpg);
+}
+.slide2{
+    background-image: url(silver-pipes-2310904.jpg);
+}
+.slide3{
+    background-image: url(swimming-apartment-architecture-ceiling-chair-261045.jpg);
+}
+
+.slide-content{
+    
+  display: grid;
+    grid-auto-rows: 1fr;
+    justify-self: end;
+}
+
+.slide-content span{
+    font-size: 3rem;
+    color: cyan;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+.arrow{
+    cursor: pointer;
+    position:absolute;
+    top: 50%;
+    margin-top: -35px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+}
+
+#arrow-left{
+    border-width: 30px 40px 30px 0px;
+    border-color: transparent #fff transparent transparent;
+    left: 0;
+    margin-left: 30px;
+    display: none;
+}
+
+#arrow-right {
+    border-width: 30px 0 30px 40px;
+    border-color: transparent transparent transparent #fff;
+    right: 0;
+    margin-right: 30px;
+    display: none;
+  }
+
+
+  

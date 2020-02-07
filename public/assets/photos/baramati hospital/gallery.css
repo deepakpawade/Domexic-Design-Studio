@@ -1,0 +1,159 @@
+body{
+    margin: 20px;
+    padding: 0;
+    background: #333;
+}
+
+.container{
+   
+    max-width: 800px;
+    margin: auto;
+    border: #fff solid 3px;
+    background: #eee;
+}
+
+.gal img, .imgs img{
+    width: 100%;
+    height: auto;
+} 
+
+.img{
+    position: relative;
+    height: 500px;
+    padding-bottom: 4px;
+}
+
+.img .back{
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    left: 4%;
+    transform:translateY(-50%);
+    border-radius: 5px;
+    font-size: 300px;
+    opacity: 0.0; 
+    border: #333 solid 1px;
+    padding: 75px 75px;
+}
+.img .sign-back{
+    cursor: pointer;
+    position: absolute;
+    top: 47%;
+    left: 15%;
+}
+
+.img .forward{
+   
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform:translateY(-50%);
+    left: 65%;
+    border-radius: 5px;
+    font-size: 300px;
+    opacity: 0.0;
+    border: #333 solid 1px;
+    padding: 75px 75px;
+}
+
+.img .sign-forward{
+    cursor: pointer;
+    position: absolute;
+    top: 47%;
+    left: 85%;
+}
+
+.img img{
+    display: block;
+    max-width:790px;
+    max-height:500px;
+    width: auto;
+    height: auto;
+    margin: auto;
+    overflow:auto;
+}
+.imgs{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 5px;
+}
+
+
+@keyframes fadeIn{
+    to{
+        opacity: 1;
+    }
+}
+
+.fade-in{
+    opacity: 0;
+    animation: fadeIn 0.5s ease-in 1 forwards;
+}
+
+@media (max-width : 750px){
+    .imgs{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        gap: 5px;
+    }
+
+    .container{
+        max-width: 740px;
+        min-width: 480px;
+        margin: auto;
+        border: #fff solid 3px;
+        background: #eee;
+    }
+    .img{
+        position: relative;
+        height: 300px;
+        padding-bottom: 4px;
+    }
+
+    .img img{
+        display: block;
+        max-width:480px;
+        max-height:300px;
+        width: auto;
+        height: auto;
+        margin: auto;
+        overflow:auto;
+    }
+
+    .img .back{
+        cursor: pointer;
+        position: absolute;
+        top: 43%;
+        left: 11%;
+        border-radius: 5px;
+        font-size: 20px;
+        opacity: 0.0; 
+        border: #333 solid 1px;
+        padding: 122px 75px;
+    }
+    
+    .img .forward{
+        cursor: pointer;
+        position: absolute;
+        top: 43%;
+        left: 65%;
+        border-radius: 5px;
+        font-size: 20px;
+        opacity: 0.0;
+        border: #333 solid 1px;
+        padding: 122px 70px;
+    }
+
+    .img .sign-back{
+        cursor: pointer;
+        position: absolute;
+        top: 47%;
+        left: 15%;
+    }
+    .img .sign-forward{
+        cursor: pointer;
+        position: absolute;
+        top: 47%;
+        left: 82%;
+    }
+}

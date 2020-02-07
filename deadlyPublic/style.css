@@ -1,0 +1,565 @@
+/* CORE STYLES */
+:root {
+   --primary-color: rgba(13, 110, 139, 0.15);
+    --overlay-color: rgba(24, 39, 51 , 0.85);
+    --menu-speed: 0.75s;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  html {
+    scroll-behavior: smooth;
+    height: 100vh;
+    width: 100vw;
+  }
+  body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.4;
+   ;
+  }
+  
+  .container {
+    max-width: 960px;
+    margin: auto;
+    overflow: hidden;
+    padding: 0 3rem;
+  }
+  
+  .showcase {
+    background: var(--primary-color);
+    color: #fff;
+    height: 100vh;
+    position: relative;
+  }
+  
+  .showcase:before {
+    content: '';
+    background: url('assets/abstract-architectural-architectural-design-architecture-532571.jpg') no-repeat center center/cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    /* opacity: 0.7;  */
+    /* background: rgba(0, 0, 0, 0.1); */
+    box-shadow: inset 120px 100px 250px #000000, inset -120px -100px 250px #000000;
+    
+    
+  } 
+  
+  
+  .showcase .showcase-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100%;
+  }
+
+  .showcase .showcase-inner img{
+    position: absolute;
+    overflow: hidden;
+    top: 10px;
+    max-width: 200px; /* width of container */
+    max-height: 200px; /* height of container */
+    object-fit: cover;
+  }
+  .showcase .showcase-inner .text{
+    position: absolute;
+    top: 250px;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 16px;
+  }
+
+
+  .showcase h1 {
+    font-size: 4rem;
+  }
+  
+  .showcase p {
+    font-size: 1.3rem;
+  }
+  
+  .btn {
+    display: inline-block;
+    border: none;
+    background: var(--primary-color);
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    margin-top: 1rem;
+    transition: opacity 1s ease-in-out;
+    text-decoration: none;
+  }
+  
+  .btn:hover {
+    opacity: 0.7;
+  }
+  
+  /* MENU STYLES */
+  .menu-wrap {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+  
+  .menu-wrap .toggler {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    opacity: 0;
+  }
+  
+  .menu-wrap .hamburger {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 60px;
+    height: 60px;
+    padding: 1rem;
+    background: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Hamburger Line */
+  .menu-wrap .hamburger > div {
+    position: relative;
+    flex: none;
+    width: 100%;
+    height: 2px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s ease;
+  }
+  
+  /* Hamburger Lines - Top & Bottom */
+  .menu-wrap .hamburger > div::before,
+  .menu-wrap .hamburger > div::after {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    top: -10px;
+    width: 100%;
+    height: 2px;
+    background: inherit;
+  }
+  
+  /* Moves Line Down */
+  .menu-wrap .hamburger > div::after {
+    top: 10px;
+  }
+  
+  /* Toggler Animation */
+  .menu-wrap .toggler:checked + .hamburger > div {
+    transform: rotate(135deg);
+  }
+  
+  /* Turns Lines Into X */
+  .menu-wrap .toggler:checked + .hamburger > div:before,
+  .menu-wrap .toggler:checked + .hamburger > div:after {
+    top: 0;
+    transform: rotate(90deg);
+  }
+  
+  /* Rotate On Hover When Checked */
+  .menu-wrap .toggler:checked:hover + .hamburger > div {
+    transform: rotate(225deg);
+  }
+  
+  /* Show Menu */
+  .menu-wrap .toggler:checked ~ .menu {
+    visibility: visible;
+  }
+  
+  .menu-wrap .toggler:checked ~ .menu > div {
+    transform: scale(1);
+    transition-duration: var(--menu-speed);
+  }
+  
+  .menu-wrap .toggler:checked ~ .menu > div > div {
+    opacity: 1;
+    transition:  opacity 0.4s ease 0.4s;
+  }
+  
+  .menu-wrap .menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    visibility: hidden;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .menu-wrap .menu > div {
+    background: var(--overlay-color);
+    border-radius: 50%;
+    width: 200vw;
+    height: 200vw;
+    display: flex;
+    flex: none;
+    align-items: center;
+    justify-content: center;
+    transform: scale(0);
+    transition: all 0.4s ease;
+  }
+  
+  .menu-wrap .menu > div > div {
+    text-align: center;
+    max-width: 90vw;
+    max-height: 100vh;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+  
+  .menu-wrap .menu > div > div > ul > li {
+    list-style: none;
+    color: #fff;
+    font-size: 1.5rem;
+    padding: 1rem;
+  }
+  
+  .menu-wrap .menu > div > div > ul > li > a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.4s ease;
+  }
+
+
+/* prpjects */
+  
+
+
+  .projects{
+      text-align: center;
+      padding-bottom: 50px;
+      box-shadow: inset 120px 100px 250px #000000, inset -120px -100px 250px #000000;
+      /* padding-top: 100px; */
+      /* background-color: cadetblue; */
+      /* background-image: url(services/abstract-antique-backdrop-background-164005.jpg); */
+      z-index: -1;
+    }
+
+  .projects .p-title{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 5rem;
+    background: rgb(34,193,195);
+background: linear-gradient(0deg, rgba(34,193,195,1) 41%, rgba(253,187,45,1) 65%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+   
+  }
+  .projects .project-text{
+    padding-bottom: 50px;
+    color:black   ;
+  }
+
+/*cards*/
+
+/* .box{
+  z-index: 1;
+  width: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 5px;
+  margin: 0 auto;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+@media screen and (max-width:800px){
+  .box{
+    display: block;
+
+  }
+
+  .p-card{
+    width: auto;
+    height: auto;
+  }
+
+  .project-text{
+    display: none;
+  }
+}
+
+@media screen and (max-width:480px){
+  .box{
+    display: block;
+  }
+
+  .p-card{
+    padding-top: 100px;
+    width: auto;
+    height: auto;
+  }
+  .project-text{
+    display: none;
+  }
+}
+.p-card{
+  cursor: pointer;
+  position: relative;
+  width: 300px;
+  height: 350px;
+  background: #fff;
+  margin: 0 auto;
+  border-radius: 4px;
+  box-shadow:0 2px 10px rgba(0,0,0,.2);
+
+}
+.p-card:before,
+.p-card:after
+{
+  content:"";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+  background: rgb(175, 167, 167);
+  transition: 0.5s;
+  z-index:-1;
+}
+.p-card:hover:before{
+transform: rotate(20deg);
+box-shadow: 0 2px 20px rgba(0,0,0,.2);
+}
+.p-card:hover:after{
+transform: rotate(10deg);
+box-shadow: 0 2px 20px rgba(0,0,0,.2);
+}
+.p-card .imgBx{
+position: absolute;
+top: 10px;
+left: 10px;
+bottom: 10px;
+right: 10px;
+background: #222;
+transition: 0.5s;
+z-index: 1;
+}
+
+.p-card:hover .imgBx
+{
+  bottom: 80px;
+}
+
+.p-card .imgBx img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.p-card .details{
+    position: absolute;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    height: 60px;
+    text-align: center;
+}
+
+.p-card .details h2{
+ margin: 0;
+ padding: 0;
+ font-weight: 600;
+ font-size: 20px;
+ color: #777;
+ text-transform: uppercase;
+} 
+
+.p-card .details h2 span{
+font-weight: 500;
+font-size: 16px;
+color: #f38695;
+display: block;
+margin-top: 5px;
+ }  */
+
+ .p-cards-list {
+  z-index: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.p-card {
+  margin: 30px auto;
+  width: 300px;
+  height: 300px;
+  border-radius: 40px;
+box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.p-card .p-card_image {
+  width: inherit;
+  height: inherit;
+  border-radius: 40px;
+}
+
+.p-card .p-card_image img {
+  width: inherit;
+  height: inherit;
+  border-radius: 40px;
+  object-fit: cover;
+}
+
+.p-card .p-card_title {
+  text-align: center;
+  border-radius: 0px 0px 40px 40px;
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 30px;
+  margin-top: -80px;
+  height: 40px;
+}
+
+.p-card:hover {
+  transform: scale(0.9, 0.9);
+  box-shadow: 5px 5px 30px 15px rgba(0,0,0,0.25), 
+    -5px -5px 30px 15px rgba(0,0,0,0.22);
+}
+
+.title-white {
+  color: white;
+}
+
+.title-black {
+  color: black;
+}
+
+@media all and (max-width: 500px) {
+  .p-card-list {
+    /* On small screens, we are no longer using row direction but column */
+    flex-direction: column;
+  }
+}
+
+
+.p-card {
+  margin: 30px auto;
+  width: 300px;
+  height: 300px;
+  border-radius: 40px;
+  background-image: url('https://i.redd.it/b3esnz5ra34y.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-repeat: no-repeat;
+box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
+  transition: 0.4s;
+}
+
+
+
+  /* services */
+ .service-section{
+  background-image: url(services/low-angle-photo-of-ceiling-3597339.jpg) ;
+  box-shadow: inset 120px 100px 250px #000000, inset -120px -100px 250px #000000;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-bottom: 50px;
+  /* background: rgb(2,0,36);
+background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(88,83,26,0.7035013834635417) 59%, rgba(255,107,0,1) 100%);  */
+
+}
+
+
+.services{
+  padding: 0;
+  margin: 0;
+  
+}
+
+/* .card section{
+  background: rgb(2,0,36);
+  background: linear-gradient(27deg, rgba(2,0,36,1) 0%, rgba(88,83,26,0.7287114674971551) 60%, rgba(255,107,0,1) 100%);  
+} */
+
+@media screen and (max-width:800px){
+  .card{
+  grid-template-columns: 1fr;
+  font-size: 1rem;
+  }
+}
+.card div{
+  height: fit-content;
+  width: fit-content;
+}
+
+.card div p{
+  position: relative;
+  font-size: 2rem;
+  color:crimson;
+}
+
+
+
+
+
+
+
+
+  @media screen and (max-width:480px){
+
+  
+    .showcase .showcase-inner .text{
+      font-size: 5px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+
+
+    .showcase{
+      height: 75vh;
+    }
+
+    .text-desc , .showcase .btn{
+      display: none;
+    }
+  }
+
+  @media screen and (max-width:800px){
+    .showcase .showcase-inner .text{
+      font-size: 5px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+
+    .showcase{
+      height: 80vh;
+    }
+
+    .text-desc , .showcase .btn{
+      display: none;
+    }
+  }
+
+  @media screen and(max-width:700px){
+    .card div h3{
+      font-size: 0.5rem;
+      }
+    }

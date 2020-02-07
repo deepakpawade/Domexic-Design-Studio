@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Full Screen Slider</title>
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Bitter&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="slider.css">
+</head>
+<body>
+    <div class="warp">
+        <div class="title">
+            Services we provide
+        </div>
+        <div id="arrow-left" class="arrow"></div>
+        <div class="slider">
+            <div class="slide slide1">
+                <div class="slide-content">
+                    <span>General Renovations</span>
+                </div>
+            </div>
+            <div class="slide slide2">
+                <div class="slide-content">
+                    <span>Construction of water pipeline</span>
+                </div>
+            </div>
+            <div class="slide slide3">
+                <div class="slide-content">
+                    <span>Construction of swimming pools</span>
+                </div>
+            </div>
+        </div>
+        <div id="arrow-right" class="arrow"></div>
+    </div>
+
+    <div class="ddd">
+        <p>
+adad
+        </p>
+
+    </div>
+    <script>
+        let sliderImages = document.querySelectorAll('.slide');
+        arrowLeft =document.querySelector('#arrow-left');
+        arrowRight =document.querySelector('#arrow-right');
+        curr = 0;
+    
+        //clear all images
+        function reset(){
+            for(let i=0;i<sliderImages.length;i++){
+                sliderImages[i].style.display = 'none';
+            }
+        }
+
+        //initializes the slider
+        function startSlide(){
+            reset();
+            sliderImages[0].style.display = 'block';
+        }
+
+        //show prev
+        function slideLeft(){
+            reset();
+            sliderImages[curr-1].style.display = 'block';
+            curr=curr-1;
+        }
+
+         //show next
+         function slideRight(){
+            reset();
+            sliderImages[curr+1].style.display = 'block';
+            curr = curr + 1;
+        }
+
+        //left arrow click
+        arrowLeft.addEventListener('click',()=>{
+            if(curr === 0) curr = sliderImages.length;
+            slideLeft();
+        })
+
+        //right arrow click
+        arrowRight.addEventListener('click',()=>{
+            if(curr === sliderImages.length-1) curr = -1;
+            slideRight();
+        })
+        startSlide();
+
+        setInterval(()=>{ 
+            arrowLeft.click();
+        },1500);
+    </script>
+    
+</body>
+</html>
